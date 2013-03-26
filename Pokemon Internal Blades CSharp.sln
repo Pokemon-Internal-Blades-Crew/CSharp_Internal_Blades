@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2012 for Windows Desktop
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pokemon Internal Blades CSharp", "Pokemon Internal Blades CSharp\Pokemon Internal Blades CSharp.csproj", "{FB6CA234-409E-48FC-9B73-FB158145900F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|Win32 = Debug|Win32
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FB6CA234-409E-48FC-9B73-FB158145900F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB6CA234-409E-48FC-9B73-FB158145900F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB6CA234-409E-48FC-9B73-FB158145900F}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{FB6CA234-409E-48FC-9B73-FB158145900F}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{FB6CA234-409E-48FC-9B73-FB158145900F}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{FB6CA234-409E-48FC-9B73-FB158145900F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB6CA234-409E-48FC-9B73-FB158145900F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB6CA234-409E-48FC-9B73-FB158145900F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{FB6CA234-409E-48FC-9B73-FB158145900F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{FB6CA234-409E-48FC-9B73-FB158145900F}.Release|Win32.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
