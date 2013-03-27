@@ -69,7 +69,6 @@ namespace Pokemon_Internal_Blades_CSharp.Items
         ///  Sets the Move the TM holds. May change to private later.
         /// </summary>
         /// <param name="tm_move">Changes the Move the TM holds.</param>
-
         public void SetMove(Move tm_move)
         {
             m_moveTeaches = tm_move;
@@ -79,7 +78,6 @@ namespace Pokemon_Internal_Blades_CSharp.Items
         ///  Allows the TM to become reusable. This is useful, especially in the case of HMs
         /// </summary>
         /// <param name="isReusable">Sets TM or HM status. HMs are reusable, TMs are not.</param>
-        
         public void SetReusable(bool isReusable)
         {
             m_isReusable = isReusable;

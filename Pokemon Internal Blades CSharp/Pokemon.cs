@@ -512,6 +512,60 @@ namespace Pokemon_Internal_Blades_CSharp
 		}
 
         /// <summary>
+        /// Returns Base HP stat
+        /// </summary>
+        /// <returns>int m_baseHealth: Base HP stat</returns>
+        public int GetBaseHP()
+        {
+            return m_baseHealth;
+        }
+
+        /// <summary>
+        /// Returns Base Attack stat
+        /// </summary>
+        /// <returns>int m_baseAttack: Base Attack stat</returns>
+        public int GetBaseAttack()
+        {
+            return m_baseAttack;
+        }
+
+        /// <summary>
+        /// Returns base Special Attack stat
+        /// </summary>
+        /// <returns>int m_baseSpAttack: Base Special Attack Stat</returns>
+        public int GetBaseSpAttack()
+        {
+            return m_baseSpAttack;
+        }
+
+        /// <summary>
+        /// Returns Base Defense Stat
+        /// </summary>
+        /// <returns>int m_baseDefense: Base Defense stat</returns>
+        public int GetBaseDefense()
+        {
+            return m_baseDefense;
+        }
+
+        /// <summary>
+        /// Returns Base Special Defense
+        /// </summary>
+        /// <returns>int m_baseSpDefense: Base Special Defense</returns>
+        public int GetBaseSpDefense()
+        {
+            return m_baseSpDefense;
+        }
+
+        /// <summary>
+        /// Returns the Base Speed stat
+        /// </summary>
+        /// <returns>int m_baseSpeed: Base Speed</returns>
+        public int GetBaseSpeed()
+        {
+            return m_baseSpeed;
+        }
+
+        /// <summary>
         /// Returns hp IV
         /// </summary>
         /// <returns>Hp Individual Value</returns>
@@ -1294,11 +1348,28 @@ namespace Pokemon_Internal_Blades_CSharp
         }
 
         /// <summary>
-        /// Eventually, this will cause the pokemon to evolve... However, I have no idea how to implement this.
+        /// This will evolve the Pokemon internally.
         /// </summary>
         public void Evolve()
         {
-            // this = m_evolution;
+            m_baseAttack = m_evolution.GetBaseAttack();
+            m_baseDefense = m_evolution.GetBaseDefense();
+            m_baseHealth = m_evolution.GetBaseHP();
+            m_baseSpAttack = m_evolution.GetBaseSpAttack();
+            m_baseSpDefense = m_evolution.GetBaseSpDefense();
+            m_baseSpeed = m_evolution.GetBaseSpeed();
+            m_name = m_evolution.GetName();
+            m_evolution = m_evolution.GetEvolution();
+            
+        }
+
+        /// <summary>
+        /// Returns the Evolution of the Pokemon
+        /// </summary>
+        /// <returns>Pokemon m_evolution: the Evolution of the Pokemon</returns>
+        public Pokemon GetEvolution()
+        {
+            return m_evolution;
         }
 
         /// <summary>
@@ -1408,91 +1479,5 @@ namespace Pokemon_Internal_Blades_CSharp
 
 	}
 
-    public class Box
-    {
-        private ArrayList m_box = new ArrayList(30);
-        private static int m_boxCounter = 0;
-        
-        public Box()
-        {
-        }
-
-        /// <summary>
-        /// Adds the Pokemon target to the Box
-        /// </summary>
-        /// <param name="target">Pokemon to add to the Box</param>
-        public void AddPokemonToBox(Pokemon target)
-        {
-            m_box.Add(target);
-            m_boxCounter++;
-        }
-
-        /// <summary>
-        /// Removes pokemon from the Box if it finds it.
-        /// </summary>
-        /// <param name="pokemon">Pokemon to search for.</param>
-        /// <returns>A Pokemon object</returns>
-        public Pokemon WithdrawPokemonBox(Pokemon pokemon)
-        {
-            try
-            {
-                int index = m_box.IndexOf(pokemon);
-
-                Pokemon target = (Pokemon)m_box[index];
-                m_box.RemoveAt(index);
-                m_boxCounter--;
-
-                return target;
-            }
-            catch
-            {
-                Console.WriteLine("Error: Pokemon looking for not in box.");
-                return null;
-            }
-        }
-
-        public int GetCounter()
-        {
-            return m_boxCounter;
-        }
-
-    }
-
-    public class BoxSystem
-    {
-        private Box[] m_boxSystem = new Box[15];
-        private static int m_boxSystemCounter = 0;
-
-        public BoxSystem()
-        {
-        }
-
-        /// <summary>
-        /// Adds the Pokemon to a Box somewhere
-        /// </summary>
-        /// <param name="target">Pokemon to be added to a box</param>
-        public void AddPokemonToBoxSystem(Pokemon target)
-        {
-            if (m_boxSystem[m_boxSystemCounter].GetCounter() == 30)
-            {
-                m_boxSystemCounter++;
-            }
-            else
-            {
-                m_boxSystem[m_boxSystemCounter].AddPokemonToBox(target);
-            }
-        }
-
-        /// <summary>
-        /// Searches for a pokemon and returns it if it is found.
-        /// </summary>
-        /// <param name="name">Pokemon to search for</param>
-        /// <returns>A Pokemon</returns>
-        public Pokemon WithdrawPokemonBoxSystem(Pokemon pokemon)
-        {
-            return m_boxSystem[m_boxSystemCounter].WithdrawPokemonBox(pokemon);
-        }
-
-    }
 
 }

@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Ability.cs" />
     <Compile Include="Battle.cs" />
+    <Compile Include="Box.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

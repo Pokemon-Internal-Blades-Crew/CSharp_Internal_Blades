@@ -33,8 +33,11 @@ namespace Pokemon_Internal_Blades_CSharp.Items
             base.SetValue(5000);
         }
 
-        // TODO: Create EvolutionItem Constructor that takes parameters.
-
+        /// <summary>
+        /// Constructor for an Evolution Item
+        /// </summary>
+        /// <param name="name">Name of the Evolution Item</param>
+        /// <param name="value">Value of the Evolution Item</param>
         public EvolutionItem(string name, long value)
         {
             base.SetName(name);
@@ -46,8 +49,6 @@ namespace Pokemon_Internal_Blades_CSharp.Items
 
         private int m_stone;
 
-        private Pokemon[] m_pokemonEvolves; // A list of Pokemon that the Evolution Item evolves.
-
         /// <summary>
         /// Evolves the Target. This should check to see if it can evolve the target first using target.CanEvolve();
         /// </summary>
@@ -58,7 +59,7 @@ namespace Pokemon_Internal_Blades_CSharp.Items
 
             if (target.CanEvolve())
             {
-                if (target.MethodOfEvolution() >= 28 && target.MethodOfEvolution() <= 36)
+                if (target.MethodOfEvolution() == m_stone)
                 {
                     target.Evolve();
                 }
