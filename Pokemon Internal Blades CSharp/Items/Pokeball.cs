@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 
 
 namespace Pokemon_Internal_Blades_CSharp.Items
@@ -107,7 +107,10 @@ namespace Pokemon_Internal_Blades_CSharp.Items
             }
             if (m_captureWorked)
             {
-                player.AddPokemon(target);
+                if (player.AddPokemonToParty(target) == 0)
+                {
+                    player.AddPokemonToBox(target);
+                }
             }
 
         }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Collections;
 
 namespace Pokemon_Internal_Blades_CSharp
@@ -90,7 +90,6 @@ namespace Pokemon_Internal_Blades_CSharp
                     break;
                 }
             }
-            
             
         }
 

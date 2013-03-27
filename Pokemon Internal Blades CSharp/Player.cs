@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
+using System.Collections;
 
 namespace Pokemon_Internal_Blades_CSharp
 {
@@ -28,7 +29,8 @@ namespace Pokemon_Internal_Blades_CSharp
         /// <param name="starter">The Player's first pokemon.</param>
         Player(string name, int gender, Pokemon starter)
         {
-            m_party = new Pokemon[6];
+            m_party = new ArrayList(6);
+            m_party.Capacity = 6;
             m_name = name;
             m_cash = 3000;
             if (gender != MALE || gender != FEMALE)
@@ -37,14 +39,14 @@ namespace Pokemon_Internal_Blades_CSharp
                 m_gender = gender;
             m_trainerID = rnd.Next(100000, 1000000);
             m_secretID = rnd.Next(100000, 1000000);
-            m_party[0] = starter;
+            m_party.Add(starter);
         }
 
         private Random rnd = new Random();
         private string m_name;			// Name of the trainer
         private int m_gender;			// Gender of the trainer
         private long m_cash;			// Cash amount of the trainer
-        private Pokemon[] m_party;	// Pokemon in Party
+        private ArrayList m_party;	// Pokemon in Party
         private long m_trainerID;		// ID of the trainer. Should be 6 characters.
         private long m_secretID;
         private BoxSystem m_boxSystem = new BoxSystem();
@@ -102,10 +104,25 @@ namespace Pokemon_Internal_Blades_CSharp
         /// Adds the Pokemon to the box system.
         /// </summary>
         /// <param name="target">The Pokemon to add to the Box System</param>
-        public void AddPokemon(Pokemon target)
+        public void AddPokemonToBox(Pokemon target)
         {
             m_boxSystem.AddPokemonToBoxSystem(target);
             target.SetOwned(true);
+        }
+
+        /// <summary>
+        /// Adds the Pokemon to the Party. If the party is full, returns 0.
+        /// </summary>
+        /// <param name="target">Pokemon to add to party.</param>
+        /// <returns>0 if Party full, 1 if party isn't full.</returns>
+        public int AddPokemonToParty(Pokemon target)
+        {
+            if (m_party.Capacity < 6)
+            {
+                m_party.Add(target);
+                return 1;
+            }
+            return 0;
         }
 
 
