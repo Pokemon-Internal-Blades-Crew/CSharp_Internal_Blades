@@ -775,6 +775,11 @@ namespace Pokemon_Internal_Blades_CSharp
             m_currentHP = GetRandom(1, m_HP);
         }
 
+        public void SetCurrentHP(int currentHP)
+        {
+            m_currentHP = currentHP;
+        }
+
 		/// <summary>
 		/// Checks the effectiveness of the move to the targetType. Uses nested switch-case statements, so is not commented.
 		/// </summary>

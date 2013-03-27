@@ -174,11 +174,11 @@ namespace Pokemon_Internal_Blades_CSharp
         public Form1()
         {
             InitializeComponent();
-            TestPokeballFormula(5);
         }
 
-        public void TestPokeballFormula(int iterations)
+        public void TestPokeballFormula(int iterations, double statusMod, int catchRate, int currentHP, int level)
         {
+            richTextBox1.Clear();
             Pokemon eevee = new Pokemon("Eevee", "the Mutation Pokemon", NORMAL, NONE, true, 5, 1);
             eevee.SetBaseStats(55, 55, 45, 50, 65, 55);
             Player player = new Player("Kyle", 0, eevee);
@@ -189,44 +189,66 @@ namespace Pokemon_Internal_Blades_CSharp
 
             for (int i = 0; i < iterations; i++)
             {
-                Pokemon starly = new Pokemon("Starly", "the Bird Pokemon", NORMAL, FLYING, false, 100, 255);
+                
+                Pokemon starly = new Pokemon("Starly", "the Bird Pokemon", NORMAL, FLYING, false, level, catchRate);
                 starly.SetBaseStats(40, 55, 30, 30, 30, 60);
-                starly.SetCurrentHPRandom();
+                starly.SetCurrentHP(currentHP);
 
-                int number = Pokemon.GetRandom(1, 3);
-
+                int number = 1;// Pokemon.GetRandom(1, 3);
+                //richTextBox1.AppendText(((int)pokeball.TestCaptureValue(starly, 1.5)).ToString() + "\n");
+                
                 if (number == 1)
                 {
                     richTextBox1.AppendText("POKEBALL GO!\n\n");
                     pokeball.Catch(player, starly);
-
-                    richTextBox1.AppendText(pokeball.m_test1);
-                    richTextBox1.AppendText(pokeball.m_test2);
-                    richTextBox1.AppendText(pokeball.m_test3);
                     richTextBox1.AppendText(pokeball.m_test4);
-                }
+                }/*
                 else if (number == 2)
                 {
                     richTextBox1.AppendText("GREATBALL GO!\n\n");
                     greatBall.Catch(player, starly);
-
-                    richTextBox1.AppendText(pokeball.m_test1);
-                    richTextBox1.AppendText(pokeball.m_test2);
-                    richTextBox1.AppendText(pokeball.m_test3);
-                    richTextBox1.AppendText(pokeball.m_test4);
+                    richTextBox1.AppendText(greatBall.m_test4);
                 }
                 else
                 {
                     richTextBox1.AppendText("ULTRABALL GO!\n\n");
                     ultraBall.Catch(player, starly);
 
-                    richTextBox1.AppendText(pokeball.m_test1);
-                    richTextBox1.AppendText(pokeball.m_test2);
-                    richTextBox1.AppendText(pokeball.m_test3);
-                    richTextBox1.AppendText(pokeball.m_test4);
-                }
-
+                    richTextBox1.AppendText(ultraBall.m_test4);
+                }*/
+                
             }
+        }
+
+        public void TestPokeballFormula(double statusMod, int catchRate, int currentHP, double ballMod, int level)
+        {
+            richTextBox1.Clear();
+            Pokemon eevee = new Pokemon("Eevee", "the Mutation Pokemon", NORMAL, NONE, true, 5, 1);
+            eevee.SetBaseStats(55, 55, 45, 50, 65, 55);
+            Player player = new Player("Kyle", 0, eevee);
+
+            Pokeball pokeball = new Pokeball();
+            pokeball.SetBallMod(ballMod);
+            Pokemon starly = new Pokemon("Starly", "the Bird Pokemon", NORMAL, FLYING, false, level, catchRate);
+            starly.SetBaseStats(40, 55, 30, 30, 30, 60);
+            starly.SetCurrentHP(currentHP);
+
+            richTextBox1.AppendText(((int)pokeball.TestCaptureValue(starly, statusMod)).ToString() + "\n\n");
+            richTextBox1.AppendText(((int)pokeball.TestCaptureFormula2(starly, statusMod)).ToString() + "\n\n");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            double statusMod = (double)numericUpDown1.Value;
+            int catchRate = (int)numericUpDown2.Value;
+            int currentHP = (int)numericUpDown3.Value;
+            double ballMod = (double)numericUpDown4.Value;
+            TestPokeballFormula(statusMod, catchRate, currentHP, ballMod, (int)numericUpDown6.Value);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            TestPokeballFormula((int)numericUpDown5.Value, (double)numericUpDown1.Value, (int)numericUpDown2.Value, (int)numericUpDown3.Value, (int)numericUpDown6.Value);
         }
     }
 }
