@@ -27,7 +27,7 @@ namespace Pokemon_Internal_Blades_CSharp
         /// <param name="name">Name of the Player</param>
         /// <param name="gender">Gender of the Player. A 0 or a 1 value.</param>
         /// <param name="starter">The Player's first pokemon.</param>
-        Player(string name, int gender, Pokemon starter)
+        public Player(string name, int gender, Pokemon starter)
         {
             m_party = new ArrayList(6);
             m_party.Capacity = 6;

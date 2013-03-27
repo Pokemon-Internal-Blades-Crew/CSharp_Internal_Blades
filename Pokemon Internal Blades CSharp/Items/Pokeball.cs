@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading;
 
 
-namespace Pokemon_Internal_Blades_CSharp.Items
+namespace Pokemon_Internal_Blades_CSharp
 {
     /// <summary>
     /// Pokeball class: Subclass of Item class.
@@ -16,6 +16,19 @@ namespace Pokemon_Internal_Blades_CSharp.Items
 		private double m_ballModifier;	// Catch Rate from 0.5 to 16.0
         private bool m_isMasterBall;
         private bool m_captureWorked;   // True if capture worked. Only used during Catch() method.
+
+        private double m_catchValue;
+        private double m_catch1;
+        private double m_catch2;
+        private double m_catch3;
+        private double m_randomNumber1;
+        private double m_randomNumber2;
+        private double m_randomNumber3;
+
+        public string m_test1 = "";
+        public string m_test2 = "";
+        public string m_test3 = "";
+        public string m_test4 = "";
 
 
         /// <summary>
@@ -67,39 +80,53 @@ namespace Pokemon_Internal_Blades_CSharp.Items
             double catchValue = ((( 3 * target.GetMaxHP() - 2 * target.GetCurrentHP()) * 
                 (target.GetCatchRate() * m_ballModifier)) / 
                 (3 * target.GetMaxHP())) * target.GetStatusModifier();
-
+            m_catchValue = catchValue;
             if (catchValue >= 250 || m_isMasterBall)
             {
                 m_captureWorked = true;
+                m_test4 = "m_catchValue: " + m_catchValue + "\nCapture Success!\n\n------------------\n";
             }
             else
             {
                 double catch1 = (1048560 / Math.Sqrt(Math.Sqrt(16711680 / catchValue)));
-                double randomNumber = (double)target.GetRandom(0, 275);
+                double randomNumber = (double)Pokemon.GetRandom(0, 65536);
+                m_catch1 = catch1;
+                m_randomNumber1 = randomNumber;
                 if (randomNumber >= catch1)
                 {
                     m_captureWorked = true;
+                    m_test1 = "m_catchValue: " + m_catchValue + "\nm_catch1: " + m_catch1 + "\nm_randomNumber1: " + m_randomNumber1 + "\n" + "Catch1: Success!\n\n";
                 }
                 else
                 {
+                    m_test1 = /*"m_catchValue: " + m_catchValue + "\n" "m_catch1: " + m_catch1 + "\nm_randomNumber1: " + m_randomNumber1 + */  "\nCatch1: Fail\n";
                     double catch2 = (1048560 / Math.Sqrt(Math.Sqrt(16711680 / catchValue)));
-                    randomNumber = (double)target.GetRandom((int)(randomNumber / 4), 275);
+                    randomNumber = (double)Pokemon.GetRandom(0, 65536);
+                    m_catch2 = catch2;
+                    m_randomNumber2 = randomNumber;
+
                     if (randomNumber >= catch2)
                     {
                         m_captureWorked = true;
+                        m_test2 = "m_catch2: " + m_catch2 + "\nm_randomNumber2: " + m_randomNumber2 + "\nCatch2: Success!\n\n";
                     }
                     else
                     {
+                        m_test2 = /*"m_catch2: " + m_catch2 + "\n"m_randomNumber2: " + m_randomNumber2 + "\n\n" + "*/  "Catch2: Fail\n";
                         double catch3 = (1048560 / Math.Sqrt(Math.Sqrt(16711680 / catchValue)));
-                        randomNumber = (double)target.GetRandom((int)(randomNumber / 2), 275);
+                        randomNumber = (double)Pokemon.GetRandom(0, 65536);
+                        m_catch3 = catch3;
+                        m_randomNumber3 = randomNumber;
                         if (randomNumber >= catch3)
                         {
                             m_captureWorked = true;
-
+                            m_test3 = "m_catch3: " + m_catch3 + "\nm_randomNumber3: " + m_randomNumber3 + "\nCatch3: Success!\n\n";
                         }
                         else
                         {
                             m_captureWorked = false;
+                            m_test3 = /*"m_catch3: " + m_catch3 + "\nm_randomNumber3: " + m_randomNumber3 +*/ "Catch3: Fail\n";
+                            m_test4 = "Capture Failed\n\n------------------\n";
                         }
                     }
                 }
@@ -107,13 +134,16 @@ namespace Pokemon_Internal_Blades_CSharp.Items
             }
             if (m_captureWorked)
             {
-                if (player.AddPokemonToParty(target) == 0)
+                m_test4 = "m_catchValue: " + m_catchValue + "\nCapture Success!\n\n------------------\n";
+              /*  if (player.AddPokemonToParty(target) == 0)
                 {
                     player.AddPokemonToBox(target);
-                }
+                }*/
             }
 
         }
+
+        
 
     }
 }

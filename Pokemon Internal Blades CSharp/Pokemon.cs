@@ -383,7 +383,7 @@ namespace Pokemon_Internal_Blades_CSharp
         }
 
 
-        private Random random = new Random();
+        static Random random = new Random();
         
 
         private ArrayList	   m_moveCanKnowList;  // List of the Pokemon's overall Move Pool
@@ -765,10 +765,15 @@ namespace Pokemon_Internal_Blades_CSharp
         /// <param name="nLow">Low value</param>
         /// <param name="nHigh">High value</param>
         /// <returns>An int between nLow and nHigh inclusive</returns>
-        public int GetRandom(int nLow, int nHigh)
+        public static int GetRandom(int nLow, int nHigh)
         {
             return random.Next(nLow - 1, nHigh) + 1;
-        }	
+        }
+
+        public void SetCurrentHPRandom()
+        {
+            m_currentHP = GetRandom(1, m_HP);
+        }
 
 		/// <summary>
 		/// Checks the effectiveness of the move to the targetType. Uses nested switch-case statements, so is not commented.

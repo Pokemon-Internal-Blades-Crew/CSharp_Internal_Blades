@@ -69,11 +69,12 @@ namespace Pokemon_Internal_Blades_CSharp
 
     public class BoxSystem
     {
-        private Box[] m_boxSystem = new Box[20];
+        private Box[] m_boxSystem;
         private static int m_boxSystemCounter = 0;
 
         public BoxSystem()
         {
+            m_boxSystem = new Box[20];
         }
 
         /// <summary>
