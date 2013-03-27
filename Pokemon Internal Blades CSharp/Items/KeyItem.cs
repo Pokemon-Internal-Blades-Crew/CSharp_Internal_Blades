@@ -7,17 +7,20 @@ using System.Threading.Tasks;
 namespace Pokemon_Internal_Blades_CSharp.Items
 {
     /// <summary>
-    /// 
+    /// KeyItem class: Subclass of Item class
     /// </summary>
     public class KeyItem : Item
     {
         /// <summary>
-        /// 
+        /// KeyItem Default Constructor
         /// </summary>
         public KeyItem()
         {
             base.SetName(" ");
             base.SetHoldable(false);
+            base.SetValue(0);
         }
+
+        // TODO: Create KeyItem constructor that takes parameters.
     }
 }

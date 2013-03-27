@@ -20,14 +20,11 @@ namespace Pokemon_Internal_Blades_CSharp
     /// </summary>
     public class Pokemon
 	{
-        
-        // ---------------------------------------------------------------------------------------------------------------------
-
+      
         /// <summary>
         /// NONE should be used only when the program is asking for a second type and the pokemon does not technically have one.
         /// </summary>
         const int NONE		=	0;
-
         /// <summary>
         /// Normal Type
         /// Supereffective Against:			N/A
@@ -35,8 +32,7 @@ namespace Pokemon_Internal_Blades_CSharp
         /// No Damage to:					Ghost
         /// No Damage from:					Ghost
         /// </summary>
-        const int NORMAL		=	1;
-
+        const int NORMAL	=	1;
         /// <summary>
         /// Fighting Type
         /// Supereffective Against:			Normal, Ice, Rock, Dark, Steel
@@ -45,7 +41,6 @@ namespace Pokemon_Internal_Blades_CSharp
         /// No Damage from:					N/A
         /// </summary>
         const int FIGHTING	=	2;
-
         /// <summary>
         /// Fire Type
         /// Supereffective Against:			Grass, Ice, Steel, Bug		
@@ -54,7 +49,6 @@ namespace Pokemon_Internal_Blades_CSharp
         /// No Damage from:					N/A
         /// </summary>
         const int FIRE		=	3;
-
         /// <summary>
         /// Water Type
         /// Supereffective Against:			Fire, Ground, Rock	
@@ -63,7 +57,6 @@ namespace Pokemon_Internal_Blades_CSharp
         /// No Damage from:					N/A
         /// </summary>
         const int WATER		=	4;
-
         /// <summary>
         /// Ice Type
         /// Supereffective Against:			Grass, Flying, Ground, Dragon	
@@ -72,7 +65,6 @@ namespace Pokemon_Internal_Blades_CSharp
         /// No Damage from:					N/A
         /// </summary>
         const int ICE		=	5;
-
         /// <summary>
         /// Grass Type
         /// Supereffective Against:			Water, Ground, Rock		
@@ -81,7 +73,6 @@ namespace Pokemon_Internal_Blades_CSharp
         /// No Damage from:					N/A
         /// </summary>
         const int GRASS		=	6;
-
         /// <summary>
         /// Bug Type
         /// Supereffective Against:			Psychic, Dark, Grass		
@@ -90,7 +81,6 @@ namespace Pokemon_Internal_Blades_CSharp
         /// No Damage from:					N/A
         /// </summary>
         const int BUG		=	7;
-
         /// <summary>
         /// Poison Type
         /// Supereffective Against:			Grass		
@@ -98,8 +88,7 @@ namespace Pokemon_Internal_Blades_CSharp
         /// No Damage to:					Steel
         /// No Damage from:					N/A
         /// </summary>
-        const int POISON		=	8;
-
+        const int POISON	=   8;
         /// <summary>
         /// Flying Type
         /// Supereffective Against:			Bug, Grass, Fighting		
@@ -107,8 +96,7 @@ namespace Pokemon_Internal_Blades_CSharp
         /// No Damage to:					N/A
         /// No Damage from:					Ground
         /// </summary>
-        const int FLYING		=	9;
-
+        const int FLYING	=	9;
         /// <summary>
         /// Psychic Type
         /// Supereffective Against:			Fighting, Poison		
@@ -117,7 +105,6 @@ namespace Pokemon_Internal_Blades_CSharp
         /// No Damage from:					N/A
         /// </summary>
         const int PSYCHIC	=	10;
-
         /// <summary>
         /// Ghost Type
         /// Supereffective Against:			Psychic, Ghost		
@@ -126,7 +113,6 @@ namespace Pokemon_Internal_Blades_CSharp
         /// No Damage from:					Normal, Fighting
         /// </summary>
         const int GHOST		=	11;
-
         /// <summary>
         /// Dark Type
         /// Supereffective Against:			Psychic, Ghost		
@@ -135,7 +121,6 @@ namespace Pokemon_Internal_Blades_CSharp
         /// No Damage from:					Psychic
         /// </summary>
         const int DARK		=	12;
-
         /// <summary>
         /// Ground Type
         /// Supereffective Against:			Fire, Electric, Poison, Rock, Steel		
@@ -143,8 +128,7 @@ namespace Pokemon_Internal_Blades_CSharp
         /// No Damage to:					Flying
         /// No Damage from:					Electric
         /// </summary>
-        const int GROUND		=	13;
-
+        const int GROUND	=	13;
         /// <summary>
         /// Steel Type
         /// Supereffective Against:			Ice, Bug		
@@ -153,7 +137,6 @@ namespace Pokemon_Internal_Blades_CSharp
         /// No Damage from:					Poison
         /// </summary>
         const int STEEL		=	14;
-
         /// <summary>
         /// Rock Type
         /// Supereffective Against:			Fire, Ice, Flying, Bug		
@@ -162,7 +145,6 @@ namespace Pokemon_Internal_Blades_CSharp
         /// No Damage from:					N/A
         /// </summary>
         const int ROCK		=	15;
-
         /// <summary>
         /// Electric Type
         /// Supereffective Against:			Water, Flying		
@@ -171,7 +153,6 @@ namespace Pokemon_Internal_Blades_CSharp
         /// No Damage from:					N/A
         /// </summary>
         const int ELECTRIC	=	16;
-
         /// <summary>
         /// Dragon Type
         /// Supereffective Against:			Dragon		
@@ -179,8 +160,7 @@ namespace Pokemon_Internal_Blades_CSharp
         /// No Damage to:					N/A
         /// No Damage from:					N/A
         /// </summary>
-        const int DRAGON		=	17;
-
+        const int DRAGON	=	17;
         /// <summary>
         /// Shadow Type
         /// Supereffective Against:			All but Shadow		
@@ -188,8 +168,7 @@ namespace Pokemon_Internal_Blades_CSharp
         /// No Damage to:					N/A
         /// No Damage from:					N/A
         /// </summary>
-        const int SHADOW		=	18;
-
+        const int SHADOW	=	18;
         /// <summary>
         /// ??? Type
         /// Supereffective Against:			N/A
@@ -199,158 +178,211 @@ namespace Pokemon_Internal_Blades_CSharp
         /// No Damage from:					N/A
         /// </summary>
         const int UNKNOWN	=	19;
-
-        // ---------------------------------------------------------------------------------------------------------------------
-
-        /// <summary>
-        /// Base MP of 5
-        /// </summary>
+        
         const int LOW_MP		=	5;
-
-        /// <summary>
-        /// Base MP of 10
-        /// </summary>
         const int LOW_MED_MP	=	10;
-
-        /// <summary>
-        /// Base MP of 15
-        /// </summary>
         const int MEDIUM_MP	=	15;
-
-        /// <summary>
-        /// Base MP of 20
-        /// </summary>
         const int MED_HIGH_MP =	20;
-
-        /// <summary>
-        /// Base MP of 30
-        /// </summary>
         const int HIGH_MP	=	30;
 
-        // ---------------------------------------------------------------------------------------------------------------------
-
-        // Nature Definitions
-        // Used to modify stats in Nature Class
-
-        /// <summary>
-        /// Increases the stat by 1.1
-        /// </summary>
         const double INCREASE_STAT =	1.1;
-
-        /// <summary>
-        /// Normal Stat: 1.0
-        /// </summary>
         const double NORMAL_STAT	  =	1.0;
-
-        /// <summary>
-        /// Decreases the stat by 0.9
-        /// </summary>
         const double DECREASE_STAT =	0.9;
 
-        // ---------------------------------------------------------------------------------------------------------------------
-
-        /// <summary>
-        /// True
-        /// </summary>
         const bool YES			=	true;
-
-        /// <summary>
-        /// False
-        /// </summary>
         const bool NO			=	false;
 
-        // ---------------------------------------------------------------------------------------------------------------------
-
-        /// <summary>
-        /// Blank Name Definition
-        ///	Defines EMPTY as ""
-        /// </summary>
         const string EMPTY			=   " ";
 
-        // ---------------------------------------------------------------------------------------------------------------------
-
+        /// <summary>
+        /// Status: None
+        /// </summary>
+        const int NO_STATUS     =   0;
         /// <summary>
         /// Poisoned Effects: The Pokémon loses 1/8th Max HP each turn;
         ///	 For every 4 steps the trainer takes, the Pokémon loses 1 HP until it reaches 1 HP remaining
         /// </summary>
         const int POISONED		=   1;
-
         /// <summary>
         /// Paralysis Effects: The Pokémon afflicted's Speed stat is reduced to 25% of it's Maximum. 
         ///  Pokémon with the Quick Feet ability are not affected by the Speed reduction
         ///  The Pokémon has a 25% chance of being unable to attack each turn
         /// </summary>
         const int PARALYZED		=   2;
-
         /// <summary>
         /// Burned Effects: Each turn, the Pokémon afflicted with the Burn loses 1/8th of it's Max HP
         ///  The Pokémon's Physical Attack Stat is cut by Half. This effect does not work on Pokémon with the Guts ability
         ///  The Pokémon's Special Attack Stat is doubled on Pokémon with the Heat Rampage ability
         /// </summary>
-        const int BURNED			=   3;
-
+        const int BURNED		=   3;
         /// <summary>
         /// Frozen Effects: The Pokémon cannot use any attacks (apart from those that thaw it)
         /// </summary>
-        const int FROZEN			=   4;
-
+        const int FROZEN		=   4;
         /// <summary>
         /// Sleeping Effects: The Pokémon cannot attack for 1 to 7 turns, the turn count is lowered with the Early Bird ability
         ///  Sleep Talk & Snore can be used
         ///  Allows the attacks Dream Eater & Nightmare as well as the ability Bad Dreams to be used against you
         /// </summary>
         const int SLEEPING		=   5;
-
         /// <summary>
         /// Attracted Effects: The Pokémon afflicted cannot attack 50% of the time
         /// </summary>
         const int ATTRACTED		=   6;
-
         /// <summary>
         /// Confusion Effects: The Pokémon afflicted cannot attack 50% of the time for 1-4 turns
         ///  Raises Evasion for Pokémon with the Tangled Feed ability
         /// </summary>
         const int CONFUSED   	=	7;
-
         /// <summary>
         /// Cursed Effects: The Pokémon afflicted loses 1/4 of it's Max HP each turn
         /// </summary>
-        const int CURSED			=   8;
-
+        const int CURSED		=   8;
         /// <summary>
         /// Badly Poisoned Effects: The Pokémon loses 1/16th Max HP for the first turn and then adds 1/16th to the amount to be lost 
         ///  so on 2nd turn 2/16th, 3rd 3/16th and so on until the Pokémon faints
         /// </summary>
-        const int BAD_POISON		=   9;
+        const int BAD_POISON	=   9;
 
-        // ---------------------------------------------------------------------------------------------------------------------
-
-        /// <summary>
-        /// Gender Definition: Male
-        /// </summary>
         const int MALE			=   0;
-
-        /// <summary>
-        /// Gender Definition: Female
-        /// </summary>
-        const int FEMALE			=   1;
-
-        // ---------------------------------------------------------------------------------------------------------------------
+        const int FEMALE		=   1;
 
         /// <summary>
         /// Default Trainer ID Definition
         /// </summary>
         const long DEFAULT_ID	=	100000;
 
+        // Methods of Evolution
+        const int NO_EVOLUTION        =   00;
+        const int LVL                 =   01;
+        const int LVL_DAY_HAPPY       =   02;
+        const int LVL_NIGHT_HAPPY     =   03;
+        const int LVL_AREA            =   04;
+        const int LVL_MOVE_ROLLOUT    =   05;
+        const int LVL_MOVE_ANCIENT    =   06;
+        const int LVL_OVAL_STONE      =   07;
+        const int LVL_RAZOR_FANG      =   08;
+        const int LVL_RAZOR_CLAW      =   09;
+        const int TRADE_DEEP_SCALE    =   10;
+        const int TRADE_DEEP_TOOTH    =   11;
+        const int TRADE_DRAGON_SCALE  =   12;
+        const int TRADE_DUBIOUS       =   13;
+        const int TRADE_ELEC          =   14;
+        const int TRADE_KINGS_ROCK    =   15;
+        const int TRADE_MAGM          =   16;
+        const int TRADE_METAL_COAT    =   17;
+        const int TRADE_PRISM_SCALE   =   18;
+        const int TRADE_PROTECTOR     =   19;
+        const int TRADE_REAPER_CLOTH  =   20;
+        const int TRADE_UPGRADE       =   21;
+        const int LVL_EXTRA_SLOT      =   22;
+        const int LVL_MALE            =   23;
+        const int LVL_FEMALE          =   24;
+        const int LVL_STATS           =   25;
+        const int LVL_OTHER_PKMN      =   26;
+        const int TRADE_NO_ITEM       =   27;
+        const int I_FIRE_STONE        =   28;
+        const int I_WATER_STONE       =   29;
+        const int I_THUNDERSTONE      =   30;
+        const int I_LEAF_STONE        =   31;
+        const int I_MOON_STONE        =   32;
+        const int I_SUN_STONE         =   33;
+        const int I_DAWN_STONE        =   34;
+        const int I_DUSK_STONE        =   35;
+        const int I_SHINY_STONE       =   36;
+
+        //-----------------------------------------------------------------------------------------------------
+
+
+        /// <summary>
+        /// Constructor for a new Pokemon.
+        /// </summary>
+        /// <param name="name">Name of the Pokemon.</param>
+        /// <param name="classification">Classification of the Pokemon.</param>
+        /// <param name="type1">The first type of the Pokemon in int form.</param>
+        /// <param name="type2">The second type of the Pokemon in int form.</param>
+        /// <param name="owned">Boolean value telling if the Pokemon is a trainer Pokemon or not.</param>
+        /// <param name="level">The level of the Pokemon from 1 to 100 inclusive</param>
+        public Pokemon(string name, string classification, int type1, int type2, bool owned, int level, int catchRate)
+        {
+            m_name = name;		// Sets the Pokemon's name to name
+            m_nickname = name;
+            m_classification = classification;	// Sets the pokemon's classification to classification.
+
+            m_isFainted = NO;	// Automatic is not fainted
+            m_owned = owned;	// Set owned status. True is trainer, false is wild.
+
+            m_type1 = type1;	// Set first type.
+            m_type2 = type2;	// Set second type. If in real game, this does not exist, type2 is NONE.
+
+            m_level = level;
+            m_happiness = 90;
+
+            m_ability1 = new Ability();
+            m_ability2 = new Ability();
+            m_abilityHidden1 = new Ability();
+            m_abilityHidden2 = new Ability();
+
+            m_nature = new Nature();
+
+            SetIVs();
+            SetEVs();
+
+            m_status = NO_STATUS;
+            m_catchRate = catchRate;
+
+            m_howEvolves = NO_EVOLUTION;
+            if (m_howEvolves > 0)
+                m_canEvolve = true;
+            else
+                m_canEvolve = false;
+        }
+
+        /// <summary>
+        /// Default Constructor
+        /// </summary>
+        public Pokemon()
+        {
+            m_level = 5;
+            m_name = EMPTY;
+            
+            m_type1 = NORMAL;
+            m_type2 = NONE;
+            m_isFainted = NO;
+            m_owned = NO;
+            
+            SetIVs();
+            SetEVs();
+
+            m_status = NO_STATUS;
+
+            m_ability1 = new Ability();
+            m_ability2 = new Ability();
+            m_abilityHidden1 = new Ability();
+            m_abilityHidden2 = new Ability();
+
+            m_nature = new Nature();
+            
+            m_catchRate = 255;
+            m_happiness = 90;
+
+            m_howEvolves = NO_EVOLUTION;
+            
+            if (m_howEvolves > 0)
+                m_canEvolve = true;
+            else
+                m_canEvolve = false;
+        }
+
+
         private Random random = new Random();
         
-        
 
-        private Move[]		m_moveCanKnowList;
-        private Move[]      m_moveKnowsList;
-        private Move[]      m_eggMoves;
+        private Move[]		m_moveCanKnowList;  // List of the Pokemon's overall Move Pool
+        private Move[]      m_moveKnowsList;    // List of the Pokemon's current Move Pool
+        private Move[]      m_eggMoves;         // List of the Pokemon's possible Egg Moves.
 
-        private Move        m_moveUsing;
+        private Move        m_moveUsing;        // Last move used.
 
 
 		private string		m_name;				// Pokemon Name
@@ -364,7 +396,6 @@ namespace Pokemon_Internal_Blades_CSharp
 		
 		private Nature		m_nature;			// Nature of the Pokemon
 
-		 private int	m_health;			// from 0 to 999
 		 private int	m_level;			// from 1 to 100
 
 		 private int	m_baseHealth;		// Base Hp
@@ -398,9 +429,9 @@ namespace Pokemon_Internal_Blades_CSharp
 		 private int	m_speedEV;			// Speed Effort Values (EV) from 0 to 255
 
 		private int			m_currentHP;		// Used in battle. When reaches 0, pokemon faints.
-		private double		m_damage;			// Damage value
+		//private double		m_damage;			// Damage value
 		//private double		m_stab;				// Same Type Attack Bonus
-		private double		m_effectiveness;	// Effectiveness against target.
+		//private double		m_effectiveness;	// Effectiveness against target.
 
 		private bool		m_owned;			// Tells if owned. Default to wild: false
 		private bool		m_isFainted;		// Tells if the Pokemon is fainted. Default is false.
@@ -410,9 +441,18 @@ namespace Pokemon_Internal_Blades_CSharp
 
 		private int	        m_happiness;		// Happiness Value from 0 to 255
 
+        private bool        m_canEvolve;        // True if the Pokemon can evolve. False if not.
+
+        private Pokemon     m_evolution;        // The Pokemon the pokemon evolves into, if it exists.
+
+        private int         m_howEvolves;       // The way a pokemon Evolves. See above const declarations.
+
+        private int         m_catchRate;        // 1 to 255
+
+        private int         m_status;           // 0 is None
 
         /// <summary>
-        /// Sets IV's
+        /// Sets IVs
         /// </summary>
 		private void SetIVs()
         { 
@@ -425,7 +465,7 @@ namespace Pokemon_Internal_Blades_CSharp
         }
 
         /// <summary>
-        /// Set Actual Stats
+        /// Set the stats using a formula
         /// </summary>
 		private void SetStats()
         {
@@ -440,67 +480,18 @@ namespace Pokemon_Internal_Blades_CSharp
             m_Defense = (int)((((m_defIV + 2 * m_baseDefense + ((double)m_defEV / 4)) * ((double)m_level / 100)) + 5) * GetNature().GetDefenseMod());
             m_SpDefense = (int)((((m_spDefIV + 2 * m_baseSpDefense + ((double)m_spDefEV / 4)) * ((double)m_level / 100)) + 5) * GetNature().GetSpDefenseMod());
             m_Speed = (int)((((m_speedIV + 2 * m_baseSpeed + ((double)m_speedEV / 4)) * ((double)m_level / 100)) + 5) * GetNature().GetSpeedMod());
+            m_currentHP = m_HP;
         }
 
         /// <summary>
-        /// 
+        /// This sets the base stats of the Pokemon and then calls SetStats()
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="classification"></param>
-        /// <param name="type1"></param>
-        /// <param name="type2"></param>
-        /// <param name="owned"></param>
-        /// <param name="level"></param>
-		public Pokemon(string name, string classification, int type1, int type2, bool owned, int level)
-        {
-            m_name = name;		// Sets the Pokemon's name to name
-            m_nickname = name;
-            m_classification = classification;	// Sets the pokemon's classification to classification.
-            m_isFainted = NO;	// Automatic is not fainted
-            m_owned = owned;	// Set owned status. True is trainer, false is wild.
-            m_type1 = type1;	// Set first type.
-            m_type2 = type2;	// Set second type. If in real game, this does not exist, type2 is NONE.
-            m_level = level;
-            m_happiness = 90;
-            m_ability1 = new Ability();
-            m_ability2 = new Ability();
-            m_abilityHidden1 = new Ability();
-            m_abilityHidden2 = new Ability();
-            m_nature = new Nature();
-            SetIVs();
-            SetEVs();
-        }
-
-        /// <summary>
-        /// Default Constructor
-        /// </summary>
-        public Pokemon()	
-		{
-            m_level = 5;
-			m_name = EMPTY;
-			m_owned = NO;
-			m_type1 = NORMAL;
-			m_type2 = NONE;
-            m_isFainted = NO;
-			SetIVs();
-			SetEVs();
-            m_ability1 = new Ability();
-            m_ability2 = new Ability();
-            m_abilityHidden1 = new Ability();
-            m_abilityHidden2 = new Ability();
-            m_nature = new Nature();
-            m_happiness = 90;
-		}
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="hp"></param>
-        /// <param name="att"></param>
-        /// <param name="spAtt"></param>
-        /// <param name="def"></param>
-        /// <param name="spDef"></param>
-        /// <param name="spd"></param>
+        /// <param name="hp">The base HP stat of the Pokemon.</param>
+        /// <param name="att">The base Attack stat of the Pokemon.</param>
+        /// <param name="spAtt">The base Special Attack stat of the Pokemon.</param>
+        /// <param name="def">The base Defense stat of the Pokemon.</param>
+        /// <param name="spDef">The base Special Defense stat of the Pokemon.</param>
+        /// <param name="spd">The base Speed stat of the Pokemon.</param>
         public void SetBaseStats(int hp, int att, int spAtt, int def, int spDef, int spd)
 		{
 			m_baseHealth = hp;
@@ -511,7 +502,6 @@ namespace Pokemon_Internal_Blades_CSharp
 			m_baseSpeed = spd;
 			SetStats();
 		}
-
 
         /// <summary>
         /// Returns hp IV
@@ -568,108 +558,108 @@ namespace Pokemon_Internal_Blades_CSharp
         }		
 
 		/// <summary>
-		/// 
+		/// Returns Hp Effort Values
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>m_hpEV</returns>
         public int GetHpEV()
         {
             return m_hpEV;
         }
 
 		/// <summary>
-		/// 
+		/// Returns Attack EVs
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>m_attEV</returns>
         public int GetAttackEV()
         {
             return m_attEV;
         }		
 		
 		/// <summary>
-		/// 
+		/// Returns Special Attack EVs
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>m_spAttEV</returns>
         public int GetSpAttEV()
         {
             return m_spAttEV;
         }		
 		
 		/// <summary>
-		/// 
+		/// Returns Defense EVs
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>m_defEV</returns>
         public int GetDefenseEV()
         {
             return m_defEV;
         }
 		
 		/// <summary>
-		/// 
+		/// Returns Special Defense EVs
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>m_spDefEV</returns>
         public int GetSpDefEV()
         {
             return m_spDefEV;
         }
 		
 		/// <summary>
-		/// 
+		/// Returns Speed EVs
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>m_speedEV</returns>
         public int GetSpeedEV()
         {
             return m_speedEV;
         }		
 
         /// <summary>
-        /// 
+        /// Returns the Nature of the Pokemon
         /// </summary>
-        /// <returns></returns>
+        /// <returns>m_nature</returns>
         public Nature GetNature()
         {
             return m_nature;
         }
 
 		/// <summary>
-		/// 
+		/// Returns the first type of the Pokemon as an int value.
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>m_type1</returns>
         public int GetType1()
         {
             return m_type1;
         }
 
 		/// <summary>
-		/// 
+		/// Returns the second type of the Pokemon as an int value
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>m_type2</returns>
         public int GetType2()
         {
             return m_type2;
         }
 
 		/// <summary>
-		/// 
+		/// Returns the Classification of the Pokemon as a string.
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>m_classification</returns>
         public string GetClassification()
         {
             return m_classification;
         }
 
 		/// <summary>
-		/// 
+		/// Returns the name of the species of Pokemon as a string.
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>m_name</returns>
         public string GetName()
         {
             return m_name;
         }
 
 		/// <summary>
-		/// 
+		/// Returns the nickname of the Pokemon as a string.
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>m_nickname</returns>
         public string GetNickName()
         {
             return m_nickname;
@@ -677,9 +667,9 @@ namespace Pokemon_Internal_Blades_CSharp
 
 
 		/// <summary>
-		/// 
+		/// Sets the EVs of the Pokemon to 0. Used during Pokemon Creation.
 		/// </summary>
-        public void SetEVs()
+        private void SetEVs()
         {	
 	        // EV codes
 	        m_hpEV =	0;	// HP Effort Values
@@ -691,40 +681,40 @@ namespace Pokemon_Internal_Blades_CSharp
         }
 
 		/// <summary>
-		/// 
+		/// Sets the first type of the pokemon to the parameter
 		/// </summary>
-		/// <param name="type1"></param>
+		/// <param name="type1">The new first type of the Pokemon.</param>
         public void SetType1(int type1)
         {
             m_type1 = type1;
         }	
 
 		/// <summary>
-		/// 
+		/// Changes the second type of the Pokemon to the parameter type2
 		/// </summary>
-		/// <param name="type2"></param>
+		/// <param name="type2">The new second type of the Pokemon.</param>
         public void SetType2(int type2)
         {
             m_type2 = type2;
         }
 		
         /// <summary>
-        /// 
+        /// Returns a random value between nLow and nHigh inclusive.
         /// </summary>
-        /// <param name="nLow"></param>
-        /// <param name="nHigh"></param>
-        /// <returns></returns>
+        /// <param name="nLow">Low value</param>
+        /// <param name="nHigh">High value</param>
+        /// <returns>An int between nLow and nHigh inclusive</returns>
         public int GetRandom(int nLow, int nHigh)
         {
             return random.Next(nLow - 1, nHigh) + 1;
         }	
 
 		/// <summary>
-		/// 
+		/// Checks the effectiveness of the move to the targetType. Uses nested switch-case statements, so is not commented.
 		/// </summary>
-		/// <param name="moveType"></param>
-		/// <param name="targetType"></param>
-		/// <returns></returns>
+		/// <param name="moveType">The type of the move.</param>
+		/// <param name="targetType">The type of the target Pokemon.</param>
+		/// <returns>A double value between 0.0 and 2.0. This is used during damage calculations.</returns>
         public double CheckTypeEffective(int moveType, int targetType)
         {
             double effectiveness = 1.0;
@@ -1251,11 +1241,11 @@ namespace Pokemon_Internal_Blades_CSharp
         }
 
         /// <summary>
-        /// 
+        /// Checks the effectiveness of the Move to the target Pokemon. 
         /// </summary>
-        /// <param name="usingMove"></param>
-        /// <param name="target"></param>
-        /// <returns></returns>
+        /// <param name="usingMove">The move used by the user.</param>
+        /// <param name="target">The target Pokemon.</param>
+        /// <returns>A double value between 0.0 and 4.0.</returns>
         double CheckEffectiveness(Move usingMove, Pokemon target)
         {
             double effectiveness = 1.0;
@@ -1277,6 +1267,102 @@ namespace Pokemon_Internal_Blades_CSharp
 
             return effectiveness;
         }
-		
+
+        /// <summary>
+        /// Returns a boolean value based on if the Pokemon can evolve. True if yes.
+        /// </summary>
+        /// <returns>bool m_canEvolve</returns>
+        public bool CanEvolve()
+        {
+            return m_canEvolve;
+        }
+
+        /// <summary>
+        /// Returns an int that tells how the Pokemon evolves. See const table above.
+        /// </summary>
+        /// <returns>int m_howEvolves</returns>
+        public int MethodOfEvolution()
+        {
+            return m_howEvolves;
+        }
+
+        /// <summary>
+        /// Eventually, this will cause the pokemon to evolve... However, I have no idea how to implement this.
+        /// </summary>
+        public void Evolve()
+        {
+            // this = m_evolution;
+        }
+
+        /// <summary>
+        /// Returns the Pokemon's max HP
+        /// </summary>
+        /// <returns>int m_HP</returns>
+        public int GetMaxHP()
+        {
+            return m_HP;
+        }
+
+        /// <summary>
+        /// Returns current HP. If it goes below zero, m_isFainted Flag toggles!
+        /// </summary>
+        /// <returns>int m_currentHP</returns>
+        public int GetCurrentHP()
+        {
+            return m_currentHP;
+        }
+
+        /// <summary>
+        /// Returns the Catch Rate of the Pokemon
+        /// </summary>
+        /// <returns>int m_catchRate: 1 to 255</returns>
+        public int GetCatchRate()
+        {
+            return m_catchRate;
+        }
+
+        /// <summary>
+        /// Returns the Pokemon's status in terms of fainted/!fainted
+        /// </summary>
+        /// <returns>bool m_isFainted: true if the m_currentHP == 0</returns>
+        public bool GetFainted()
+        {
+            return m_isFainted;
+        }
+
+        /// <summary>
+        /// Returns a double value based on status that the Pokeball class uses to calculate capture rate.
+        /// </summary>
+        /// <returns>double based on status: 1.0, 1.5, or 2.0</returns>
+        public double GetStatusModifier()
+        {
+            double modif = 1.0;
+
+            if (m_status == FROZEN || m_status == SLEEPING || m_status == BAD_POISON)
+            {
+                modif = 2.0;
+            }
+            else if (m_status == PARALYZED || m_status == BURNED || m_status == POISONED)
+            {
+                modif = 1.5;
+            }
+            else
+            {
+                modif = 1.0;
+            }
+
+
+            return modif;
+        }
+
+        /// <summary>
+        /// Sets the Pokemon's Ownership boolean to isBoolean
+        /// </summary>
+        /// <param name="isBoolean">true if owned, false if wild</param>
+        public void SetOwned(bool isBoolean)
+        {
+            m_owned = isBoolean;
+        }
+
 	}
 }

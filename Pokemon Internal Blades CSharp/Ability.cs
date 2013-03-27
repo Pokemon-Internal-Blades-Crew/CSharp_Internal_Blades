@@ -15,7 +15,7 @@ namespace Pokemon_Internal_Blades_CSharp
 
 
 		/// <summary>
-		/// 
+		/// Default Constructor.  Sets name, description, and effect to " ".
 		/// </summary>
 		public Ability()
         {
@@ -29,9 +29,9 @@ namespace Pokemon_Internal_Blades_CSharp
         /// <summary>
         /// Constructor for new abilities. It is probably better not to use in favor of the next constructor.
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="desc"></param>
-        /// <param name="effect"></param>
+        /// <param name="name">Name of the Ability.</param>
+        /// <param name="desc">Description of the ability.</param>
+        /// <param name="effect">Effect of the ability.</param>
         public Ability(string name, string desc, string effect) 
 		{
             m_name = name;
@@ -42,12 +42,12 @@ namespace Pokemon_Internal_Blades_CSharp
 
 
         /// <summary>
-        /// Constructor for new abilities.
+        /// Constructor for creating Hidden Abilities
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="desc"></param>
-        /// <param name="effect"></param>
-        /// <param name="hidden"></param>
+        /// <param name="name">Name of the Ability</param>
+        /// <param name="desc">Description of the Ability</param>
+        /// <param name="effect">Effect of the Ability</param>
+        /// <param name="hidden">Is the ability a hidden ability or not?</param>
 		public Ability(string name, string desc, string effect, bool hidden) 
 		{
             m_name = name;
@@ -59,7 +59,7 @@ namespace Pokemon_Internal_Blades_CSharp
         /// <summary>
         /// Setter for the name.
         /// </summary>
-        /// <param name="name"></param>
+        /// <param name="name">name of the ability.</param>
         public void SetName(string name)
         {
             m_name = name;

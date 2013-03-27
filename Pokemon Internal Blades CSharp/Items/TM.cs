@@ -28,6 +28,8 @@ namespace Pokemon_Internal_Blades_CSharp.Items
             base.SetHoldable(false);
             SetMove(new Move());
             m_isReusable = false;
+            base.SetSellable(true);
+            base.SetValue(1000);
         }
 
         /// <summary>
@@ -36,11 +38,20 @@ namespace Pokemon_Internal_Blades_CSharp.Items
         /// <param name="name">Name of the TM: This will typically be the same as the Move name</param>
         /// <param name="tm_move">The Move the TM teaches</param>
         /// <param name="isReusable">Determines TM or HM status</param>
-        public TM(string name, Move tm_move, bool isReusable)
+        /// <param name="value">Value of the TM</param>
+        public TM(string name, Move tm_move, bool isReusable, long value)
         {
             base.SetName(name);
+            base.SetSellable(true);
             SetMove(tm_move);
             m_isReusable = isReusable;
+            if (value > 0)
+                base.SetValue(value);
+            else if (value == 0)
+                base.SetSellable(false);
+            else
+                base.SetValue(value *= -1);
+            
         }
 
         /// <summary>

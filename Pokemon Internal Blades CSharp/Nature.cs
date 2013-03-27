@@ -16,11 +16,11 @@ namespace Pokemon_Internal_Blades_CSharp
         const string EMPTY = " ";
 
         /// <summary>
-        /// 
+        /// Default Constructor. Makes an undeclared Nature object be Hardy.
         /// </summary>
         public Nature()
         {
-            m_name = EMPTY;
+            m_name = "Hardy";
             m_attMod = NORMAL_STAT;
             m_spattMod = NORMAL_STAT;
             m_defMod = NORMAL_STAT;
@@ -29,19 +29,19 @@ namespace Pokemon_Internal_Blades_CSharp
         }
 
         /// <summary>
-        /// 
+        /// Constructor to make a new Nature.
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="atMod"></param>
-        /// <param name="spatMod"></param>
-        /// <param name="defMod"></param>
-        /// <param name="spdefMod"></param>
-        /// <param name="spdMod"></param>
-        public Nature(string name, double atMod, double spatMod, double defMod, double spdefMod, double spdMod)
+        /// <param name="name">The name of the Nature</param>
+        /// <param name="attMod">The double value to multiply a pokemon's base attack by.</param>
+        /// <param name="spattMod">The double value to multiply a pokemon's base special attack by.</param>
+        /// <param name="defMod">The double value to multiply a pokemon's base defense by.</param>
+        /// <param name="spdefMod">The double value to multiply a pokemon's base special defense by.</param>
+        /// <param name="spdMod">The double value to multiply a pokemon's base speed by.</param>
+        public Nature(string name, double attMod, double spattMod, double defMod, double spdefMod, double spdMod)
         {
             m_name = name;
-            m_attMod = atMod;			// Sets attack mod value
-            m_spattMod = spatMod;		// Sets spatt mod value
+            m_attMod = attMod;			// Sets attack mod value
+            m_spattMod = spattMod;		// Sets spatt mod value
             m_defMod = defMod;		// sets def mod value
             m_spdefMod = spdefMod;	// sets spdef mod value
             m_speedMod = spdMod;		// sets speed mod value
@@ -57,7 +57,7 @@ namespace Pokemon_Internal_Blades_CSharp
         private double m_speedMod;		// speed modification value
 
         /// <summary>
-        /// 
+        /// This does all the creating of natures... or it will.
         /// </summary>
         private void InitializeList()
         {
@@ -66,45 +66,45 @@ namespace Pokemon_Internal_Blades_CSharp
 
 
 		/// <summary>
-		/// 
+		/// Returns the attack modification double
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>m_attMod</returns>
         public double GetAttackMod()
         {
             return m_attMod;
         }
 
 		/// <summary>
-		/// 
+        /// Returns the special attack modification double
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>m_spattMod</returns>
         public double GetSpAttackMod()
         {
             return m_spattMod;
         }
 
 		/// <summary>
-		/// 
+        /// Returns the defense modification double
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>m_defMod</returns>
         public double GetDefenseMod()
         {
             return m_defMod;
         }
 
 		/// <summary>
-		/// 
+        /// Returns the special defense modification double
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>m_spdefMod</returns>
         public double GetSpDefenseMod()
         {
             return m_spdefMod;
         }
 
 		/// <summary>
-		/// 
+        /// Returns the speed modification double
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>m_speedMod</returns>
         public double GetSpeedMod()
         {
             return m_speedMod;
