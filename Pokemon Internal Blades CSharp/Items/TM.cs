@@ -42,7 +42,9 @@ namespace Pokemon_Internal_Blades_CSharp.Items
         public TM(string name, Move tm_move, bool isReusable, long value)
         {
             base.SetName(name);
+            base.SetHoldable(false);
             base.SetSellable(true);
+
             SetMove(tm_move);
             m_isReusable = isReusable;
             if (value > 0)
@@ -50,7 +52,7 @@ namespace Pokemon_Internal_Blades_CSharp.Items
             else if (value == 0)
                 base.SetSellable(false);
             else
-                base.SetValue(value *= -1);
+                base.SetValue(Math.Abs(value));
             
         }
 

@@ -31,13 +31,30 @@ namespace Pokemon_Internal_Blades_CSharp.Items
             m_captureWorked = false;
         }
 
-        // TODO: Make Pokeball Constructor that takes parameters.
+        /// <summary>
+        /// Constructor for a Pokeball object
+        /// </summary>
+        /// <param name="name">Name of the Pokeball</param>
+        /// <param name="value">Value of the Pokeball</param>
+        /// <param name="modifier">The modifier double used during capture.</param>
+        public Pokeball(string name, long value, double modifier)
+        {
+            base.SetName(name);
+            base.SetHoldable(false);
+            base.SetValue(Math.Abs(value));
+            if (modifier > 100)
+                m_isMasterBall = true;
+            else
+                m_isMasterBall = false;
+            m_ballModifier = modifier;
+            m_captureWorked = false;
+        }
 
         /// <summary>
         /// Method to catch the Pokemon target
         /// </summary>
         /// <param name="target">The Pokemon to attempt to catch.</param>
-        public void Catch(Trainer player, Pokemon target)
+        public void Catch(Player player, Pokemon target)
         {
             // The Formulas are now implemented, but I have no idea if they are correct. 
 
@@ -48,8 +65,8 @@ namespace Pokemon_Internal_Blades_CSharp.Items
             base.SetTarget(target);
             
             double catchValue = ((( 3 * target.GetMaxHP() - 2 * target.GetCurrentHP()) * 
-                (target.GetCatchRate() * m_ballModifier) / 
-                (3 * target.GetMaxHP())) * target.GetStatusModifier());
+                (target.GetCatchRate() * m_ballModifier)) / 
+                (3 * target.GetMaxHP())) * target.GetStatusModifier();
 
             if (catchValue >= 250 || m_isMasterBall)
             {
@@ -90,14 +107,7 @@ namespace Pokemon_Internal_Blades_CSharp.Items
             }
             if (m_captureWorked)
             {
-                if (m_isMasterBall)
-                {
-                }
-                else
-                {
-                }
-                //player.AddPokemon(target);
-                //target.SetOwned(true);
+                player.AddPokemon(target);
             }
 
         }

@@ -22,5 +22,12 @@ namespace Pokemon_Internal_Blades_CSharp.Items
         }
 
         // TODO: Create KeyItem constructor that takes parameters.
+
+        public KeyItem(string name)
+        {
+            base.SetName(name);
+            base.SetHoldable(false);
+            base.SetValue(0);
+        }
     }
 }

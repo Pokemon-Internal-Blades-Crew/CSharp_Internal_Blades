@@ -8,6 +8,7 @@ namespace Pokemon_Internal_Blades_CSharp
 {
     public class Player : Trainer
     {
+
         const int MALE = 0;
         const int FEMALE = 1;
 
@@ -104,6 +105,7 @@ namespace Pokemon_Internal_Blades_CSharp
         public void AddPokemon(Pokemon target)
         {
             m_boxSystem.AddPokemonToBoxSystem(target);
+            target.SetOwned(true);
         }
 
 

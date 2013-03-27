@@ -315,22 +315,30 @@ namespace Pokemon_Internal_Blades_CSharp
             m_type1 = type1;	// Set first type.
             m_type2 = type2;	// Set second type. If in real game, this does not exist, type2 is NONE.
 
-            m_level = level;
-            m_happiness = 90;
+            m_level = level;    // Sets level
+            m_happiness = 90;   // Sets happiness
 
+            // These will eventually be overriden when Abilities get added to constructor
             m_ability1 = new Ability();
             m_ability2 = new Ability();
             m_abilityHidden1 = new Ability();
             m_abilityHidden2 = new Ability();
 
+            // See above comment.
             m_nature = new Nature();
 
+
+            // Sets IVs and EVs
             SetIVs();
             SetEVs();
 
+            // Sets default to no status
             m_status = NO_STATUS;
+            
+            // Sets the capture rate
             m_catchRate = catchRate;
 
+            // This will eventually get changed when the constructor takes an int parameter.
             m_howEvolves = NO_EVOLUTION;
             if (m_howEvolves > 0)
                 m_canEvolve = true;
@@ -378,9 +386,9 @@ namespace Pokemon_Internal_Blades_CSharp
         private Random random = new Random();
         
 
-        private Move[]		m_moveCanKnowList;  // List of the Pokemon's overall Move Pool
-        private Move[]      m_moveKnowsList;    // List of the Pokemon's current Move Pool
-        private Move[]      m_eggMoves;         // List of the Pokemon's possible Egg Moves.
+        private ArrayList	   m_moveCanKnowList;  // List of the Pokemon's overall Move Pool
+        private ArrayList      m_moveKnowsList;    // List of the Pokemon's current Move Pool
+        private ArrayList      m_eggMoves;         // List of the Pokemon's possible Egg Moves.
 
         private Move        m_moveUsing;        // Last move used.
 
@@ -664,7 +672,6 @@ namespace Pokemon_Internal_Blades_CSharp
         {
             return m_nickname;
         }
-
 
 		/// <summary>
 		/// Sets the EVs of the Pokemon to 0. Used during Pokemon Creation.
@@ -1364,11 +1371,46 @@ namespace Pokemon_Internal_Blades_CSharp
             m_owned = isBoolean;
         }
 
+        /// <summary>
+        /// Adds the Move moveToAdd to Move Pool
+        /// </summary>
+        /// <param name="moveToAdd">The Move to add to the Move Pool</param>
+        public void AddMovePool(Move moveToAdd)
+        {
+            m_moveCanKnowList.Add(moveToAdd);
+        }
+
+        /// <summary>
+        /// Adds the Move moveToAdd to the usable moves.
+        /// </summary>
+        /// <param name="moveToAdd">The Move to add to the usable list of Moves.</param>
+        public void AddMoveToUsable(Move moveToAdd)
+        {
+            if (m_moveCanKnowList.Contains(moveToAdd))
+            {
+                m_moveKnowsList.Add(moveToAdd);
+            }
+            else
+            {
+                Console.WriteLine("Error: Pokemon cannot learn this move.");
+            }
+
+        }
+
+        /// <summary>
+        /// Returns the Pokemon's Happiness value
+        /// </summary>
+        /// <returns>int m_happiness: How happy the Pokemon is.</returns>
+        public int GetHappiness()
+        {
+            return m_happiness;
+        }
+
 	}
 
     public class Box
     {
-        private Pokemon[] m_box = new Pokemon[30];
+        private ArrayList m_box = new ArrayList(30);
         private static int m_boxCounter = 0;
         
         public Box()
@@ -1381,40 +1423,32 @@ namespace Pokemon_Internal_Blades_CSharp
         /// <param name="target">Pokemon to add to the Box</param>
         public void AddPokemonToBox(Pokemon target)
         {
-            m_box[m_boxCounter] = target;
+            m_box.Add(target);
             m_boxCounter++;
         }
 
         /// <summary>
-        /// Removes pokemon from the Box if it finds it... Searches first by Nickname, then by species.
+        /// Removes pokemon from the Box if it finds it.
         /// </summary>
         /// <param name="pokemon">Pokemon to search for.</param>
         /// <returns>A Pokemon object</returns>
         public Pokemon WithdrawPokemonBox(Pokemon pokemon)
         {
-            Pokemon target = new Pokemon();
-            foreach(Pokemon pkmn in m_box)
+            try
             {
-                if (pkmn.GetNickName().Equals(pokemon.GetNickName()))
-                {
-                    target = pkmn;
-                    
-                    
-                }
+                int index = m_box.IndexOf(pokemon);
+
+                Pokemon target = (Pokemon)m_box[index];
+                m_box.RemoveAt(index);
+                m_boxCounter--;
+
+                return target;
             }
-            if (target.GetName().Equals(" "))
+            catch
             {
-                foreach (Pokemon pkmn in m_box)
-                {
-                    if (pkmn.GetName().Equals(pokemon.GetName()))
-                    {
-                        target = pkmn;
-
-                    }
-                }
+                Console.WriteLine("Error: Pokemon looking for not in box.");
+                return null;
             }
-            return target;
-
         }
 
         public int GetCounter()
@@ -1450,20 +1484,15 @@ namespace Pokemon_Internal_Blades_CSharp
         }
 
         /// <summary>
-        /// Withdraws the Pokemon pokemon from the Box system... hopefully. It searches by Nickname first, and then by species.
+        /// Searches for a pokemon and returns it if it is found.
         /// </summary>
         /// <param name="name">Pokemon to search for</param>
         /// <returns>A Pokemon</returns>
         public Pokemon WithdrawPokemonBoxSystem(Pokemon pokemon)
         {
-            Pokemon target = new Pokemon();
-            foreach (Box box in m_boxSystem)
-            {
-                target = box.WithdrawPokemonBox(pokemon);
-            }
-            
-            return target;
-
+            return m_boxSystem[m_boxSystemCounter].WithdrawPokemonBox(pokemon);
         }
+
     }
+
 }

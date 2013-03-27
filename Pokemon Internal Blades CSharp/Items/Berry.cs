@@ -20,6 +20,8 @@ namespace Pokemon_Internal_Blades_CSharp.Items
             base.SetHoldable(true);
         }
 
+        // TODO: Write Berry Constructor that takes parameters
+
         // TODO: Implement Flavors
 
         

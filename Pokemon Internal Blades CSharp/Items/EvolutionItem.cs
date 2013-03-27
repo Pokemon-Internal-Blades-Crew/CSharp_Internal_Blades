@@ -11,17 +11,40 @@ namespace Pokemon_Internal_Blades_CSharp.Items
     /// </summary>
     public class EvolutionItem : Item
     {
+        const int I_FIRE_STONE = 28;
+        const int I_WATER_STONE = 29;
+        const int I_THUNDERSTONE = 30;
+        const int I_LEAF_STONE = 31;
+        const int I_MOON_STONE = 32;
+        const int I_SUN_STONE = 33;
+        const int I_DAWN_STONE = 34;
+        const int I_DUSK_STONE = 35;
+        const int I_SHINY_STONE = 36;
+
+
         /// <summary>
         /// Default Constructor.
         /// </summary>
         public EvolutionItem()
         {
-            base.SetName("Thunder Stone");
+            base.SetName("Fire Stone");
+            SetStone();
             base.SetHoldable(true);
-
+            base.SetValue(5000);
         }
 
         // TODO: Create EvolutionItem Constructor that takes parameters.
+
+        public EvolutionItem(string name, long value)
+        {
+            base.SetName(name);
+            SetStone();
+            base.SetHoldable(true);
+            base.SetValue(Math.Abs(value));
+        }
+
+
+        private int m_stone;
 
         private Pokemon[] m_pokemonEvolves; // A list of Pokemon that the Evolution Item evolves.
 
@@ -42,5 +65,46 @@ namespace Pokemon_Internal_Blades_CSharp.Items
             }
 
         }
+
+        /// <summary>
+        /// Sets the Stone Type for the Method EvolveTarget(Pokemon target);
+        /// </summary>
+        private void SetStone()
+        {
+            switch (base.GetName())
+            {
+                case "Water Stone":
+                    m_stone = I_WATER_STONE;
+                    break;
+                case "Fire Stone":
+                    m_stone = I_FIRE_STONE;
+                    break;
+                case "Thunderstone":
+                    m_stone = I_THUNDERSTONE;
+                    break;
+                case "Leaf Stone":
+                    m_stone = I_LEAF_STONE;
+                    break;
+                case "Moon Stone":
+                    m_stone = I_MOON_STONE;
+                    break;
+                case "Sun Stone":
+                    m_stone = I_SUN_STONE;
+                    break;
+                case "Shiny Stone":
+                    m_stone = I_SHINY_STONE;
+                    break;
+                case "Dawn Stone":
+                    m_stone = I_DAWN_STONE;
+                    break;
+                case "Dusk Stone":
+                    m_stone = I_DUSK_STONE;
+                    break;
+                default:
+                    m_stone = I_FIRE_STONE;
+                    break;
+            }
+        }
+
     }
 }
