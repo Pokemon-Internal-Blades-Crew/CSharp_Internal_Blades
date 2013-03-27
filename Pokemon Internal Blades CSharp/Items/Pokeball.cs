@@ -109,10 +109,14 @@ namespace Pokemon_Internal_Blades_CSharp
             if (m_captureWorked)
             {
                 m_test4 = "Capture Successful!\n\n\n";
-              /*  if (player.AddPokemonToParty(target) == 0)
+                if (player.AddPokemonToParty() == 0)
                 {
                     player.AddPokemonToBox(target);
-                }*/
+                }
+                else
+                {
+                    player.AddPokemonToParty(target);
+                }
             }
 
         }

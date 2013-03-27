@@ -50,8 +50,6 @@ namespace Pokemon_Internal_Blades_CSharp
         private long m_trainerID;		// ID of the trainer. Should be 6 characters.
         private long m_secretID;
         private BoxSystem m_boxSystem = new BoxSystem();
-        private static int m_boxIndex = 0;
-        private static int m_partyCount = 0;
 
         /// <summary>
         /// Returns the Player's ID
@@ -113,18 +111,27 @@ namespace Pokemon_Internal_Blades_CSharp
         /// <summary>
         /// Adds the Pokemon to the Party. If the party is full, returns 0.
         /// </summary>
-        /// <param name="target">Pokemon to add to party.</param>
         /// <returns>0 if Party full, 1 if party isn't full.</returns>
-        public int AddPokemonToParty(Pokemon target)
+        public int AddPokemonToParty()
         {
             if (m_party.Capacity < 6)
             {
-                m_party.Add(target);
                 return 1;
             }
             return 0;
         }
 
+        /// <summary>
+        /// Adds the Pokemon to the Party. 
+        /// </summary>
+        /// <param name="target">Pokemon to add to party.</param>
+        public void AddPokemonToParty(Pokemon target)
+        {
+            if (m_party.Capacity < 6)
+            {
+                m_party.Add(target);
+            }
+        }
 
     }
 }

@@ -70,11 +70,14 @@ namespace Pokemon_Internal_Blades_CSharp
     public class BoxSystem
     {
         private Box[] m_boxSystem;
-        private static int m_boxSystemCounter = 0;
 
         public BoxSystem()
         {
             m_boxSystem = new Box[20];
+            for (int i = 0; i < 20; i++)
+            {
+                m_boxSystem[i] = new Box();
+            }
         }
 
         /// <summary>
@@ -83,11 +86,11 @@ namespace Pokemon_Internal_Blades_CSharp
         /// <param name="target">Pokemon to be added to a box</param>
         public void AddPokemonToBoxSystem(Pokemon target)
         {
-            for (int index = 0; index < 20; index++)
+            for (int index = 0; index < m_boxSystem.Length; index++)
             {
                 if (m_boxSystem[index].GetCounter() <= 50)
                 {
-                    m_boxSystem[m_boxSystemCounter].AddPokemonToBox(target);
+                    m_boxSystem[index].AddPokemonToBox(target);
                     break;
                 }
             }
