@@ -62,6 +62,7 @@
     <Compile Include="Items\TM.cs" />
     <Compile Include="Move.cs" />
     <Compile Include="Nature.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="Pokemon.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1365,4 +1365,105 @@ namespace Pokemon_Internal_Blades_CSharp
         }
 
 	}
+
+    public class Box
+    {
+        private Pokemon[] m_box = new Pokemon[30];
+        private static int m_boxCounter = 0;
+        
+        public Box()
+        {
+        }
+
+        /// <summary>
+        /// Adds the Pokemon target to the Box
+        /// </summary>
+        /// <param name="target">Pokemon to add to the Box</param>
+        public void AddPokemonToBox(Pokemon target)
+        {
+            m_box[m_boxCounter] = target;
+            m_boxCounter++;
+        }
+
+        /// <summary>
+        /// Removes pokemon from the Box if it finds it... Searches first by Nickname, then by species.
+        /// </summary>
+        /// <param name="pokemon">Pokemon to search for.</param>
+        /// <returns>A Pokemon object</returns>
+        public Pokemon WithdrawPokemonBox(Pokemon pokemon)
+        {
+            Pokemon target = new Pokemon();
+            foreach(Pokemon pkmn in m_box)
+            {
+                if (pkmn.GetNickName().Equals(pokemon.GetNickName()))
+                {
+                    target = pkmn;
+                    
+                    
+                }
+            }
+            if (target.GetName().Equals(" "))
+            {
+                foreach (Pokemon pkmn in m_box)
+                {
+                    if (pkmn.GetName().Equals(pokemon.GetName()))
+                    {
+                        target = pkmn;
+
+                    }
+                }
+            }
+            return target;
+
+        }
+
+        public int GetCounter()
+        {
+            return m_boxCounter;
+        }
+
+    }
+
+    public class BoxSystem
+    {
+        private Box[] m_boxSystem = new Box[15];
+        private static int m_boxSystemCounter = 0;
+
+        public BoxSystem()
+        {
+        }
+
+        /// <summary>
+        /// Adds the Pokemon to a Box somewhere
+        /// </summary>
+        /// <param name="target">Pokemon to be added to a box</param>
+        public void AddPokemonToBoxSystem(Pokemon target)
+        {
+            if (m_boxSystem[m_boxSystemCounter].GetCounter() == 30)
+            {
+                m_boxSystemCounter++;
+            }
+            else
+            {
+                m_boxSystem[m_boxSystemCounter].AddPokemonToBox(target);
+            }
+        }
+
+        /// <summary>
+        /// Withdraws the Pokemon pokemon from the Box system... hopefully. It searches by Nickname first, and then by species.
+        /// </summary>
+        /// <param name="name">Pokemon to search for</param>
+        /// <returns>A Pokemon</returns>
+        public Pokemon WithdrawPokemonBoxSystem(Pokemon pokemon)
+        {
+            Pokemon target = new Pokemon();
+            foreach (Box box in m_boxSystem)
+            {
+                target = box.WithdrawPokemonBox(pokemon);
+            }
+            
+            return target;
+
+        }
+    }
 }

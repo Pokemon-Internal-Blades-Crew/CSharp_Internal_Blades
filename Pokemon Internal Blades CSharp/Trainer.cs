@@ -139,5 +139,8 @@ namespace Pokemon_Internal_Blades_CSharp
         {
             return m_trainerID;
         }
+
+
+
     }
 }
