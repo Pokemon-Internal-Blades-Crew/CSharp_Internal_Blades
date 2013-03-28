@@ -194,28 +194,14 @@ namespace Pokemon_Internal_Blades_CSharp
                 starly.SetBaseStats(40, 55, 30, 30, 30, 60);
                 starly.SetCurrentHP(currentHP);
 
-                int number = 1;// Pokemon.GetRandom(1, 3);
-                //richTextBox1.AppendText(((int)pokeball.TestCaptureValue(starly, 1.5)).ToString() + "\n");
+                int number = 1;
                 
                 if (number == 1)
                 {
                     richTextBox1.AppendText("POKEBALL GO!\n\n");
                     pokeball.Catch(player, starly);
                     richTextBox1.AppendText(pokeball.m_test4);
-                }/*
-                else if (number == 2)
-                {
-                    richTextBox1.AppendText("GREATBALL GO!\n\n");
-                    greatBall.Catch(player, starly);
-                    richTextBox1.AppendText(greatBall.m_test4);
                 }
-                else
-                {
-                    richTextBox1.AppendText("ULTRABALL GO!\n\n");
-                    ultraBall.Catch(player, starly);
-
-                    richTextBox1.AppendText(ultraBall.m_test4);
-                }*/
                 
             }
         }
@@ -236,6 +222,7 @@ namespace Pokemon_Internal_Blades_CSharp
             richTextBox1.AppendText(((int)pokeball.TestCaptureValue(starly, statusMod)).ToString() + "\n\n");
             richTextBox1.AppendText(((int)pokeball.TestCaptureFormula2(starly, statusMod)).ToString() + "\n\n");
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {

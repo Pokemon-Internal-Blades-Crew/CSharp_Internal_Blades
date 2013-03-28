@@ -110,5 +110,14 @@ namespace Pokemon_Internal_Blades_CSharp
             return m_speedMod;
         }
 
+        /// <summary>
+        /// Returns the Nature
+        /// </summary>
+        /// <returns>Nature to return</returns>
+        public Nature GetNature()
+        {
+            return this;
+        }
+
     }
 }

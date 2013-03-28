@@ -140,7 +140,30 @@ namespace Pokemon_Internal_Blades_CSharp
             return m_trainerID;
         }
 
+        public void AddPokemonSlotTwo(Pokemon target)
+        {
+            m_party[1] = target;
+        }
 
+        public void AddPokemonSlotThree(Pokemon target)
+        {
+            m_party[2] = target;
+        }
+        
+        public void AddPokemonSlotFour(Pokemon target)
+        {
+            m_party[3] = target;
+        }
 
+        public void AddPokemonSlotFive(Pokemon target)
+        {
+            m_party[4] = target;
+        }
+
+        public void AddPokemonSlotSix(Pokemon target)
+        {
+            m_party[5] = target;
+        }
+        
     }
 }

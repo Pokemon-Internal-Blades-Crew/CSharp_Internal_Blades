@@ -294,6 +294,51 @@ namespace Pokemon_Internal_Blades_CSharp
         //-----------------------------------------------------------------------------------------------------
 
 
+        public Pokemon(string name, string classification, int type1, int type2, bool owned, int level, int catchRate, int howEvolves,
+            Pokemon evolution, Ability ability1, Ability ability2, Ability hidden1, Ability hidden2, Nature nature)
+        {
+            m_name = name;		// Sets the Pokemon's name to name
+            m_nickname = name;
+            m_classification = classification;	// Sets the pokemon's classification to classification.
+
+            m_isFainted = NO;	// Automatic is not fainted
+            m_owned = owned;	// Set owned status. True is trainer, false is wild.
+
+            m_type1 = type1;	// Set first type.
+            m_type2 = type2;	// Set second type. If in real game, this does not exist, type2 is NONE.
+
+            m_level = level;    // Sets level
+            m_happiness = 90;   // Sets happiness
+
+            m_ability1 = ability1;
+            m_ability2 = ability2;
+            m_abilityHidden1 = hidden1;
+            m_abilityHidden2 = hidden2;
+
+            m_nature = nature;
+
+            // Sets IVs and EVs
+            SetIVs();
+            SetEVs();
+
+            // Sets default to no status
+            m_status = NO_STATUS;
+
+            // Sets the capture rate
+            m_catchRate = catchRate;
+
+            // This will eventually get changed when the constructor takes an int parameter.
+            m_howEvolves = howEvolves;
+            m_evolution = evolution;
+
+            if (m_howEvolves > 0)
+                m_canEvolve = true;
+            else
+                m_canEvolve = false;
+
+        }
+
+
         /// <summary>
         /// Constructor for a new Pokemon.
         /// </summary>

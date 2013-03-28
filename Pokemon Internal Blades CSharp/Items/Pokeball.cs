@@ -17,7 +17,6 @@ namespace Pokemon_Internal_Blades_CSharp
         private bool m_isMasterBall;
         private bool m_captureWorked;   // True if capture worked. Only used during Catch() method.
 
-        private double m_catchValue;
         public string m_test1 = "";
         public string m_test2 = "";
         public string m_test3 = "";

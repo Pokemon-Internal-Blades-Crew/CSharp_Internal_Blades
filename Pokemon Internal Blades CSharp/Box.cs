@@ -60,6 +60,10 @@ namespace Pokemon_Internal_Blades_CSharp
             return m_boxCounter;
         }
 
+        /// <summary>
+        /// Returns the Box
+        /// </summary>
+        /// <returns>ArrayList m_box: The current box.</returns>
         public ArrayList GetBox()
         {
             return m_box;
@@ -71,6 +75,9 @@ namespace Pokemon_Internal_Blades_CSharp
     {
         private Box[] m_boxSystem;
 
+        /// <summary>
+        /// The Default Constructor for BoxSystem
+        /// </summary>
         public BoxSystem()
         {
             m_boxSystem = new Box[20];

@@ -16,7 +16,8 @@ namespace Pokemon_Internal_Blades_CSharp.Items
         private Move m_moveTeaches; 
         
         // Determines TM or HM status. TMs are not reusable while HMs are.
-        private bool m_isReusable;  
+        private bool m_isReusable;
+        private bool m_hasBeenUsed = false;
 
         /// <summary>
         /// Default Constructor
@@ -62,7 +63,15 @@ namespace Pokemon_Internal_Blades_CSharp.Items
         /// <param name="target">The target of the Move held within the TM.</param>
         public void TeachMove(Pokemon target)
         {
-            base.SetTarget(target);
+            if (!m_hasBeenUsed)
+            {
+                base.SetTarget(target);
+                target.AddMoveToUsable(m_moveTeaches);
+                if (!m_isReusable)
+                    m_hasBeenUsed = true;
+                else
+                    m_hasBeenUsed = false;
+            }
         }
 
         /// <summary>

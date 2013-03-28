@@ -20,6 +20,11 @@ namespace Pokemon_Internal_Blades_CSharp
 
         }
 
+        public void Buy()
+        {
+
+        }
+
 
 
     }

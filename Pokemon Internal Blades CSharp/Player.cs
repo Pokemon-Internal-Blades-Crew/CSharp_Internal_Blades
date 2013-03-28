@@ -46,7 +46,7 @@ namespace Pokemon_Internal_Blades_CSharp
         private string m_name;			// Name of the trainer
         private int m_gender;			// Gender of the trainer
         private long m_cash;			// Cash amount of the trainer
-        private ArrayList m_party;	// Pokemon in Party
+        private ArrayList m_party;	    // Pokemon in Party
         private long m_trainerID;		// ID of the trainer. Should be 6 characters.
         private long m_secretID;
         private BoxSystem m_boxSystem = new BoxSystem();
@@ -114,7 +114,7 @@ namespace Pokemon_Internal_Blades_CSharp
         /// <returns>0 if Party full, 1 if party isn't full.</returns>
         public int AddPokemonToParty()
         {
-            if (m_party.Capacity < 6)
+            if (m_party.Count < 6)
             {
                 return 1;
             }
@@ -127,7 +127,7 @@ namespace Pokemon_Internal_Blades_CSharp
         /// <param name="target">Pokemon to add to party.</param>
         public void AddPokemonToParty(Pokemon target)
         {
-            if (m_party.Capacity < 6)
+            if (m_party.Count < 6)
             {
                 m_party.Add(target);
             }
