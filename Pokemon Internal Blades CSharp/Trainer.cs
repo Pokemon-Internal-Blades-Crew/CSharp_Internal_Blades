@@ -140,26 +140,46 @@ namespace Pokemon_Internal_Blades_CSharp
             return m_trainerID;
         }
 
+        /// <summary>
+        /// Used when setting the Trainer's party.
+        /// </summary>
+        /// <param name="target">Pokemon to add to party.</param>
         public void AddPokemonSlotTwo(Pokemon target)
         {
             m_party[1] = target;
         }
 
+        /// <summary>
+        /// Used when setting the Trainer's party.
+        /// </summary>
+        /// <param name="target">Pokemon to add to party.</param>
         public void AddPokemonSlotThree(Pokemon target)
         {
             m_party[2] = target;
         }
         
+        /// <summary>
+        /// Used when setting the Trainer's party.
+        /// </summary>
+        /// <param name="target">Pokemon to add to party.</param>
         public void AddPokemonSlotFour(Pokemon target)
         {
             m_party[3] = target;
         }
 
+        /// <summary>
+        /// Used when setting the Trainer's party.
+        /// </summary>
+        /// <param name="target">Pokemon to add to party.</param>
         public void AddPokemonSlotFive(Pokemon target)
         {
             m_party[4] = target;
         }
 
+        /// <summary>
+        /// Used when setting the Trainer's party.
+        /// </summary>
+        /// <param name="target">Pokemon to add to party.</param>
         public void AddPokemonSlotSix(Pokemon target)
         {
             m_party[5] = target;

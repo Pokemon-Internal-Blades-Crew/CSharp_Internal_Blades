@@ -815,11 +815,18 @@ namespace Pokemon_Internal_Blades_CSharp
             return random.Next(nLow - 1, nHigh) + 1;
         }
 
+        /// <summary>
+        /// Used for testing.
+        /// </summary>
         public void SetCurrentHPRandom()
         {
             m_currentHP = GetRandom(1, m_HP);
         }
 
+        /// <summary>
+        /// Used for testing
+        /// </summary>
+        /// <param name="currentHP">value to set</param>
         public void SetCurrentHP(int currentHP)
         {
             m_currentHP = currentHP;
