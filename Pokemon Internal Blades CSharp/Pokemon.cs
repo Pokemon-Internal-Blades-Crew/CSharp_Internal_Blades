@@ -1471,19 +1471,22 @@ namespace Pokemon_Internal_Blades_CSharp
         {
             double modif = 1.0;
 
-            if (m_status == FROZEN || m_status == SLEEPING || m_status == BAD_POISON)
+            switch (m_status)
             {
-                modif = 2.0;
+                case FROZEN:
+                case SLEEPING:
+                case BAD_POISON:
+                    modif = 2.0;
+                    break;
+                case PARALYZED:
+                case BURNED:
+                case POISONED:
+                    modif = 1.5;
+                    break;
+                default:
+                    break;
             }
-            else if (m_status == PARALYZED || m_status == BURNED || m_status == POISONED)
-            {
-                modif = 1.5;
-            }
-            else
-            {
-                modif = 1.0;
-            }
-
+ 
 
             return modif;
         }
