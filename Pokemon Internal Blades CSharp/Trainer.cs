@@ -72,6 +72,17 @@ namespace Pokemon_Internal_Blades_CSharp
         ///  Returns the Pokemon in index 0 of the array m_party
         /// </summary>
         /// <returns>First Pokemon</returns>
+        /// 
+        public Pokemon GetNthPokemon(int nParty)
+        // Returns Lead Pokemon if nParty is out of range
+        { 
+         if (nParty>=0   && nParty <=6)
+            {
+                return m_party[nParty];
+            }
+         return m_party[0];
+        }
+
 		public Pokemon GetLeadPokemon()
         {
             return m_party[0];
@@ -140,9 +151,16 @@ namespace Pokemon_Internal_Blades_CSharp
             return m_trainerID;
         }
 
+
         /// <summary>
         /// Used when setting the Trainer's party.
         /// </summary>
+        //AddPokemon to Specific Slot in party
+        public void AddPokemonToSlot(Pokemon target, int nSlot)
+        {
+            // Add code to validate target is populated and nSlot is in range
+            m_party[nSlot] = target;
+        }
         /// <param name="target">Pokemon to add to party.</param>
         public void AddPokemonSlotTwo(Pokemon target)
         {
