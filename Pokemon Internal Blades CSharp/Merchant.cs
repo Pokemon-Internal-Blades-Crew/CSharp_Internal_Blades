@@ -13,7 +13,8 @@ namespace Pokemon_Internal_Blades_CSharp
 
         }
 
-        private ArrayList m_inventory;
+        //move m_inventory to specific inherited
+        //private ArrayList m_inventory;
 
         public void Sell()
         {

@@ -8,5 +8,7 @@ namespace Pokemon_Internal_Blades_CSharp.Merchants
 {
     public class PokeballMerchant : Merchant
     {
+        private List<Pokeball> m_Inventory;
+        
     }
 }
